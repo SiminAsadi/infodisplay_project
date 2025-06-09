@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Tilføj data</title>
+</head>
+<body>
+  <h1>Indtast data til infoskærmen</h1>
+  <form method="post">
+    <label>Dato (YYYY-MM-DD): <input name="dato" required value="{{ date }}"></label><br><br>
+    <h2>Menu</h2>
+    <label>Morgenmad: <input name="breakfast" required></label><br>
+    <label>Frokost: <input name="lunch" required></label><br>
+    <label>Aftensmad: <input name="dinner" required></label><br><br>
+    <h2>Aktiviteter</h2>
+    <label>Kl. 09:00: <input name="activity1" required></label><br>
+    <label>Kl. 11:00: <input name="activity2" required></label><br><br>
+    <h2>Personale</h2>
+    <label>Navn 1: <input name="staff1" required></label><br>
+    <label>Navn 2: <input name="staff2" required></label><br><br>
+    <button type="submit">Gem</button>
+  </form>
+</body>
+</html>

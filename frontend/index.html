@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Dagens Menu</title>
+  <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+  <main class="grid">
+<div class="card blue">
+  <h2>Dagens Aktivitet</h2>
+  <ul id="activities"><li>Henter...</li></ul>
+</div>
+<div class="card green">
+  <h2>Dagens Menu</h2>
+  <p>Morgenmad: <span id="breakfast"></span></p>
+  <p>Frokost: <span id="lunch"></span></p>
+  <p>Aftensmad: <span id="dinner"></span></p>
+</div>
+<div class="card purple">
+  <h2>Personale</h2>
+  <ul id="staff"><li>Henter...</li></ul>
+</div>
+<div class="card orange">
+  <h2>Vejrudsigt</h2>
+  <p id="weather">Henter...</p>
+</div>
+</main>
+<a href="/admin" id="admin-link">Admin</a>
+  <script src="/frontend/script.js"></script>
+</body>
+</html>
+
