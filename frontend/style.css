@@ -132,6 +132,12 @@ body {
   opacity: 1;
 }
 
+#page-title {
+  text-align: center; /* Centrerer teksten */
+  font-size: 2rem; /* Gør titlen større */
+  margin-bottom: 2rem; /* Giver afstand til resten af siden */
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
