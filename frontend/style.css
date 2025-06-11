@@ -100,19 +100,6 @@ body {
   text-align: center;
 }
 
-#staff {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-#staff li {
-  margin-bottom: 1.2rem; /* Giver luft mellem personer */
-}
-
-#staff li:last-child {
-  margin-bottom: 0;
-}
-
 #admin-link {
   position: fixed;
   bottom: 20px;
@@ -140,10 +127,18 @@ body {
 
 @media (max-width: 900px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Ændrer til én kolonne på små skærme */
+    justify-content: center; /* Centrerer firkanterne vandret */
   }
   .card {
     margin-bottom: 1rem;
-    width: 100%;
+    width: 100%; /* Sørger for, at firkanterne fylder hele bredden */
+  }
+}
+
+@media (min-width: 901px) {
+  .grid {
+    grid-template-columns: repeat(3, auto); /* Tilpasser til tre kolonner på større skærme */
+    justify-content: center; /* Centrerer firkanterne vandret */
   }
 }
