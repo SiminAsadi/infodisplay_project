@@ -25,19 +25,6 @@ fetch('http://localhost:8000/api/activities')
     });
   });
 
-// Hent personale
-fetch('http://localhost:8000/api/staff')
-  .then(res => res.json())
-  .then(data => {
-    const list = document.getElementById('staff');
-    list.innerHTML = ''; // Fjerner "Henter..." før personalet tilføjes
-    data.forEach(staff => {
-      const li = document.createElement('li');
-      li.textContent = `${staff.name} (${staff.role})`;
-      list.appendChild(li);
-    });
-  });
-
 // Hent vejr
 fetch('http://localhost:8000/api/weather')
   .then(res => res.json())
