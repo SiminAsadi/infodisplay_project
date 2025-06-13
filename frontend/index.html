@@ -4,26 +4,36 @@
   <meta charset="UTF-8">
   <title>Dagens Menu</title>
   <link rel="stylesheet" href="/frontend/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1 id="page-title">Velkommen til den daglige Infoskærm</h1>
+  <h1 id="page-title">
+    <span style="font-size:2.6rem; display:inline-block; vertical-align:middle; text-shadow: 2px 4px 8px #fff6;">📺</span>
+    Velkommen til den daglige
+    <span style="color:#2d217c; text-shadow: 0 3px 8px #fff6, 0 1px 0 #fff2; font-weight: 900; margin-left: 0.1em;">Infoskærm</span>
+  </h1>
   <main class="grid">
-<div class="card blue">
-  <h2>Dagens Aktivitet</h2>
-  <ul id="activities"><li>Henter...</li></ul>
-</div>
-<div class="card green">
-  <h2>Dagens Menu</h2>
-  <p>Morgenmad: <span id="breakfast"></span></p>
-  <p>Frokost: <span id="lunch"></span></p>
-  <p>Aftensmad: <span id="dinner"></span></p>
-</div>
-<div class="card orange">
-  <h2>Vejrudsigt</h2>
-  <p id="weather">Henter...</p>
-</div>
-</main>
-<a href="/admin" id="admin-link">Admin</a>
+    <div class="card green">
+      <h2>🍽️ Dagens Menu</h2>
+      <p>🥣 Morgenmad: <span id="breakfast"></span></p>
+      <p>🥪 Frokost: <span id="lunch"></span></p>
+      <p>🍲 Aftensmad: <span id="dinner"></span></p>
+    </div>
+    <div class="card blue">
+      <h2>🧘 Dagens Aktivitet</h2>
+      <ul id="activities">
+        <li>09:00 – morgen gymnastik</li>
+        <li>11:00 – music</li>
+        <li>13:00 – banko</li>
+        <li>15:00 – gå tur</li>
+      </ul>
+    </div>
+    <div class="card orange">
+      <h2>🌤️ Vejrudsigt</h2>
+      <p id="weather">Henter...</p>
+    </div>
+  </main>
+  <a href="/admin" id="admin-link">Admin</a>
   <script src="/frontend/script.js"></script>
 </body>
 </html>

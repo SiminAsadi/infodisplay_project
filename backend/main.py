@@ -6,6 +6,8 @@ from fastapi.staticfiles import StaticFiles
 import sqlite3
 from datetime import date
 import os
+from pydantic import BaseModel
+from typing import Optional
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -36,11 +38,6 @@ def init_db():
         time TEXT,
         name TEXT
     )''')
-    db.execute('''CREATE TABLE IF NOT EXISTS staff (
-        dato TEXT,
-        name TEXT,
-        role TEXT
-    )''')
     db.commit()
 
 @app.get("/admin", response_class=HTMLResponse)
@@ -56,8 +53,8 @@ async def admin_post(
     dinner: str = Form(...),
     activity1: str = Form(...),
     activity2: str = Form(...),
-    staff1: str = Form(...),
-    staff2: str = Form(...),
+    activity3: str = Form(...),
+    activity4: str = Form(...),
 ):
     db = get_db()
     # Gem menu
@@ -75,15 +72,13 @@ async def admin_post(
         "INSERT INTO activities (dato, time, name) VALUES (?, ?, ?)",
         (dato, "11:00", activity2)
     )
-    # Gem personale
-    db.execute("DELETE FROM staff WHERE dato = ?", (dato,))
     db.execute(
-        "INSERT INTO staff (dato, name, role) VALUES (?, ?, ?)",
-        (dato, staff1, "")  # Tilføj evt. rolle-felt
+        "INSERT INTO activities (dato, time, name) VALUES (?, ?, ?)",
+        (dato, "13:00", activity3)
     )
     db.execute(
-        "INSERT INTO staff (dato, name, role) VALUES (?, ?, ?)",
-        (dato, staff2, "")
+        "INSERT INTO activities (dato, time, name) VALUES (?, ?, ?)",
+        (dato, "15:00", activity4)
     )
     db.commit()
     return RedirectResponse("/admin", status_code=303)
@@ -102,12 +97,6 @@ def get_activities(dato: str = str(date.today())):
     results = db.execute("SELECT time, name FROM activities WHERE dato = ?", (dato,)).fetchall()
     return [dict(row) for row in results]
 
-@app.get("/api/staff")
-def get_staff(dato: str = str(date.today())):
-    db = get_db()
-    results = db.execute("SELECT name, role FROM staff WHERE dato = ?", (dato,)).fetchall()
-    return [dict(row) for row in results]
-
 @app.get("/api/weather")
 def get_weather():
     return {"forecast": "Solrigt, 22°C"}
@@ -121,3 +110,13 @@ def read_index():
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 frontend_dir = os.path.join(base_dir, "frontend")
 app.mount("/frontend", StaticFiles(directory=frontend_dir), name="frontend")
+
+class InfoData(BaseModel):
+    dato: str
+    breakfast: str
+    lunch: str
+    dinner: str
+    activity1: str
+    activity2: str
+    activity3: Optional[str] = None
+    activity4: Optional[str] = None
