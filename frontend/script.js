@@ -1,3 +1,20 @@
+function formatDateTime() {
+    const now = new Date();
+    const days = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+    const dayName = days[now.getDay()];
+    const day = now.getDate();
+    const monthNames = ["januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december"];
+    const month = monthNames[now.getMonth()];
+    const year = now.getFullYear();
+    const hour = now.getHours().toString().padStart(2, "0");
+    const minute = now.getMinutes().toString().padStart(2, "0");
+    return `${dayName} d. ${day}. ${month} – Kl. ${hour}.${minute}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("page-title").textContent = formatDateTime();
+});
+
 fetch('http://localhost:8000/api/menu?dato=2025-06-10')
   .then(res => res.json())
   .then(data => {
