@@ -171,6 +171,18 @@ body {
   min-height: 270px; /*alle bokse får samme minimumshøjde */
 }
 
+.clock-absolute {
+  position: absolute;
+  top: 65px;      /* justér denne for vertikal placering */
+  left: 1030px;     /* justér denne for horisontal placering */
+  z-index: 10;
+}
+
+#analog-clock {
+  display: block;
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;

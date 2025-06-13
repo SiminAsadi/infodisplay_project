@@ -81,7 +81,7 @@ async def admin_post(
         (dato, "15:00", activity4)
     )
     db.commit()
-    return RedirectResponse("/admin", status_code=303)
+    return RedirectResponse("/", status_code=303)
 
 @app.get("/api/menu")
 def get_menu(dato: str = str(date.today())):
